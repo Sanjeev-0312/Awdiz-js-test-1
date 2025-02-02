@@ -9,40 +9,44 @@ console.log("a:", a, "b:", b);
 
 // //2.find the largest of three numbers
 
-// function findLargest(a, b, c) {
-//   if (a >= b && a >= c) {
-//     return a;
-//   } else if (b >= a && b >= c) {
-//     return b;
-//   } else {
-//     return c;
-//   }
-// }
+function findLargest(a, b, c) {
+  if (a >= b && a >= c) {
+    return a;
+  } else if (b >= a && b >= c) {
+    return b;
+  } else {
+    return c;
+  }
+}
 
-// console.log(findLargest(3, 7, 5));
+console.log(findLargest(3, 7, 5));
 
-// // 3.check if number is prime
-// function isPrime(n) {
-//   if (n < 2) return false;
+// 3.check if number is prime
+function isPrime(n) {
+  if (n < 2) return false;
 
-//   for (let i = 2; i * i <= n; i++) {
-//     if (n % i === 0) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
-// console.log(isPrime(7));
-// console.log(isPrime(10));
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isPrime(7));
+console.log(isPrime(10));
 
 // // 5. Question: Write a function to find the sum of all even numbers in an array.
-// function sumEvenNumbers(arr) {
-//   return arr.reduce((sum, num) => (num % 2 == 0 ? sum + num : sum), 0);
-// }
-// const numbers = [1, 2, 3, 4, 5, 6];
-// console.log(sumEvenNumbers(numbers));
+function sumEvenNumbers(arr) {
+  return arr.reduce((sum, num) => (num % 2 == 0 ? sum + num : sum), 0);
+}
+const numbers = [1, 2, 3, 4, 5, 6];
+console.log(sumEvenNumbers(numbers));
 
-//7. Find the second largest number in an array.
+// 7. Find the second largest number in an array.
+
+const secondLargest = arr => [...new Set(arr)].sort((a, b) => b - a)[1] || null;
+
+console.log(secondLargest([10, 20, 4, 45, 99]));
 
 //4.Reverse an Array Without Using Built-in Methods
 var arr = [1, 2, 3, 4];
@@ -59,27 +63,29 @@ console.log(reverseArray(arr));
 
 // 9.Write a function to find the factorial of a given number using a loop.
 
-// function factorial(n) {
-//   if (n === 0 || n === 1)
-// {
-// return 1;  }
-// return n * factorial(n - 1);
-// }
+function factorial(n) {
+  if (n === 0 || n === 1)
+{
+return 1;  }
+return n * factorial(n - 1);
+}
 
-// console.log(factorial(5));
+console.log(factorial(5));
 
 
 // Q. 10 Write a function to check whether an array is sorted in ascending order.
  
-// var arr=[1,2,3,4,5];
-// var arr=[1,3,2,4,5];
-// function isSortedArr(){
-//   for(var i=){
+function isSorted(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+          return false; 
+      }
+  }
+  return true; 
+}
 
-//   }
-// }
-
-
+console.log(isSorted([1, 2, 3, 4, 5])); 
+console.log(isSorted([1, 3, 2, 4, 5]));
 
 
 
@@ -96,3 +102,12 @@ function vowels(){
   return count;
 }
 console.log(vowels());
+
+
+// Remove duplicate elements from an array and return a new array.
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
